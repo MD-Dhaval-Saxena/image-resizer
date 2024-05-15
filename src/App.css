@@ -39,3 +39,70 @@
 body{
   overflow: hidden;
 }
+/* For small screens (mobile devices) */
+
+@media (max-width:400) {
+  .bg-main {
+    background-color: #61dafb;
+  }
+  
+}
+@media (max-width: 767px) {
+  .flex {
+    flex-direction: column;
+  }
+
+  .ml-9,
+  .mr-9 {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .mt-10,
+  .mb-10 {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .rowBtn {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 767px) {
+  .flex {
+    flex-direction: column;
+  }
+
+  /* .w-1/2 {
+    width: 100%;
+  } */
+
+  .ml-9,
+  .mr-9 {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .mt-10,
+  .mb-10 {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .rowBtn {
+    flex-wrap: wrap;
+  }
+}
+
+
+/* For medium screens (tablets) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  
+  /* Add any specific styles for tablets here */
+}
+
+/* For large screens (desktops) */
+@media (min-width: 1024px) {
+  /* No additional styles needed, as the existing styles are for desktop view */
+}
