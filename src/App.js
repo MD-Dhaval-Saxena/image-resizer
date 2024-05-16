@@ -57,7 +57,7 @@ function App() {
   };
 
   const handleBtn = (data) => {
-    console.log('Selected proportion:', data.proportion);
+    console.log("Selected proportion:", data.proportion);
     console.log(data);
     setHeight(data.height);
     setWidth(data.width);
@@ -131,13 +131,15 @@ function App() {
               id="proportion"
               class="w-1/4 p-2 bg-zinc-200 dark:bg-zinc-800 border border-zinc-300 dark:border-zinc-700 rounded"
             >
-              {
-                ProportionList.map((item) => (
-                  <option onClick={()=>handleBtn(item)} value={item.proportion} key={item.index}>
-                    {item.proportion}
-                  </option>
-                ))
-              }
+              {ProportionList.map((item) => (
+                <option
+                  onClick={() => handleBtn(item)}
+                  value={item.proportion}
+                  key={item.index}
+                >
+                  {item.proportion}
+                </option>
+              ))}
               {/* <option   value="1:1">1:1</option>
               <option value="16:9">16:9</option>
               <option value="9:16">9:16</option>
