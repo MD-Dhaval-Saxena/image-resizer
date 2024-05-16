@@ -57,6 +57,7 @@ function App() {
   };
 
   const handleBtn = (data) => {
+    console.log('Selected proportion:', data.proportion);
     console.log(data);
     setHeight(data.height);
     setWidth(data.width);
@@ -72,13 +73,15 @@ function App() {
   };
 
   return (
-    <div
-      className="flex text-white bg-main ml-4"
-      style={{ height: "717px", width: "100%" }}
-    >
-      <div className="w-1/2  mt-10 mb-10 ml-9 mr-9   flex flex-col flex-center justify-center items-start ">
+    // <div
+    //   className="flex text-white bg-main ml-4"
+    //   style={{ height: "717px", width: "100%" }}
+    // >
+    <div className="flex flex-col md:flex-row justify-center items-center bg-zinc-800 dark:bg-zinc-900 text-white dark:text-zinc-300 min-h-screen p-8">
+      {/* <div className="w-1/2  mt-10 mb-10 ml-9 mr-9   flex flex-col flex-center justify-center items-start "> */}
+      <div className="w-full md:w-1/2 p-8 order-1 md:order-1">
         <h1 className="text-2xl font-bold mb-6 ">Photo Retouch</h1>
-        <p className="mb-6 font-mono text-balance">
+        <p className="mb-6 font-mono text-balance md:block hidden ">
           Our user-friendly app allows you to quickly and accurately resize your
           images while preserving the original aspect ratio, ensuring your
           photos look flawless at any size.
@@ -108,7 +111,7 @@ function App() {
             className="border-4 text-gray-500 font-bold font-serif border-purple-200 dark:border-2 dark:border-slate-400 rounded px-2 py-1 mb-4"
           />
           <h1>Proportion</h1>
-          <div className="rowBtn flex flex-row space-x-4 mb-4">
+          <div className="rowBtn flex flex-row space-x-4 mb-4 md:block hidden">
             {ProportionList.map((item) => (
               <button
                 key={item.index}
@@ -120,6 +123,27 @@ function App() {
               </button>
             ))}
           </div>
+          <div class="mb-6  md:hidden">
+            <label for="proportion" class="block mb-2">
+              Proportion:
+            </label>
+            <select
+              id="proportion"
+              class="w-1/4 p-2 bg-zinc-200 dark:bg-zinc-800 border border-zinc-300 dark:border-zinc-700 rounded"
+            >
+              {
+                ProportionList.map((item) => (
+                  <option onClick={()=>handleBtn(item)} value={item.proportion} key={item.index}>
+                    {item.proportion}
+                  </option>
+                ))
+              }
+              {/* <option   value="1:1">1:1</option>
+              <option value="16:9">16:9</option>
+              <option value="9:16">9:16</option>
+              <option value="4:3">4:3</option> */}
+            </select>
+          </div>
           <button
             onClick={handleBgColor}
             className="rounded w-4/1 p-2 border-4  border-white bg-slate-900 text-white font-serif font-bold"
@@ -128,7 +152,8 @@ function App() {
           </button>
         </div>
       </div>
-      <div className=" w-1/2  mt-10 mb-10 ml-9 mr-9 flex flex-grow items-center justify-center overflow-hidden ">
+      {/* <div className=" w-1/2  mt-10 mb-10 ml-9 mr-9 flex flex-grow items-center justify-center overflow-hidden "> */}
+      <div className="w-full md:w-1/2 p-8 ">
         <div
           ref={imageRef}
           style={{
